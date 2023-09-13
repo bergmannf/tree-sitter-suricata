@@ -31,6 +31,21 @@ Once the right library is build, setup Emacs to load it:
 (add-to-list 'auto-mode-alist '("\\.rules" . suricata-mode))
 ```
 
+Alternatively in doom-emacs:
+
+```elisp
+(define-derived-mode suricata-mode
+  prog-mode
+  "suricata"
+  "Edit suricata rule files")
+
+(after! tree-sitter
+  (tree-sitter-require 'suricata))
+(add-to-list 'auto-mode-alist '("\\.rules" . suricata-mode))
+(add-hook! suricata-mode 'tree-sitter-mode 'tree-sitter-hl-mode)
+(set-tree-sitter-lang! 'suricata-mode 'suricata)
+```
+
 Now the queries file for the language has to be copied to the right place, so it
 will be picked up:
 
