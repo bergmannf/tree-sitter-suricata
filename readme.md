@@ -26,6 +26,9 @@ Once the right library is build, setup Emacs to load it:
   prog-mode
   "suricata"
   "Edit suricata rule files")
+(add-hook 'suricata-mode-hook 'tree-sitter-mode)
+(add-hook 'suricata-mode-hook 'tree-sitter-hl-mode)
+(add-to-list 'auto-mode-alist '("\\.rules" . suricata-mode))
 ```
 
 Now the queries file for the language has to be copied to the right place, so it
