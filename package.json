@@ -14,5 +14,10 @@
   "license": "MIT",
   "dependencies": {
     "nan": "^2.18.0"
-  }
+  },
+  "tree-sitter": [{
+    "scope": "source.suricata",
+    "file-types": ["rules"],
+    "injection-regex": "suricata"
+  }]
 }

@@ -565,7 +565,7 @@
     },
     "option_key": {
       "type": "PATTERN",
-      "value": "[a-zA-Z_-]+"
+      "value": "[-.\\w]+"
     },
     "option_value": {
       "type": "PATTERN",

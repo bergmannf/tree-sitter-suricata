@@ -23,7 +23,7 @@ module.exports = grammar({
                 options: $ => seq("(", $.option, ")"),
                 option: $ => repeat1(seq($.option_key_value, ";")),
                 option_key_value: $ => seq($.option_key, optional(seq(":", $.option_value))),
-                option_key: $ => /[a-zA-Z_-]+/,
+                option_key: $ => /[-.\w]+/,
                 option_value: $ => /[^;)\n]+/,
                 comment: $ => seq("#", /.*/),
         }
