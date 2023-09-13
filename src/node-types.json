@@ -82,6 +82,10 @@
         {
           "type": "network_subnet_mask",
           "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
         }
       ]
     }

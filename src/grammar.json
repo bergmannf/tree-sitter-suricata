@@ -239,6 +239,10 @@
           "value": "any"
         },
         {
+          "type": "SYMBOL",
+          "name": "variable"
+        },
+        {
           "type": "SEQ",
           "members": [
             {
@@ -496,7 +500,7 @@
         },
         {
           "type": "PATTERN",
-          "value": "[^\\s]+"
+          "value": "\\w+"
         }
       ]
     },

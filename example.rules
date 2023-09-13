@@ -5,3 +5,4 @@ alert tcp 1.1.1.1 53 -> 2.2.2.2 [52,53] (msg: "Hi";)
 alert tcp 1.1.1.1 any -> 2.2.2.2 any (msg: "hi"; more; key: value;)
 alert tcp 1.1.1.1 any -> 2.2.2.2 any (msg: "hi"; key.with.dots;)
 # This is a comment
+alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg: "external";)
