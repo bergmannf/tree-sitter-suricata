@@ -1,0 +1,501 @@
+[
+  {
+    "type": "action",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "direction",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "rule",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "network",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "network_ip",
+          "named": true
+        },
+        {
+          "type": "network_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "network_cidr",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "network_octet",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "network_ip",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "network_cidr",
+          "named": true
+        },
+        {
+          "type": "network_subnet_mask",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "network_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "network_list_entry",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "network_list_entry",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "network_ip",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "option",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "option_key_value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "option_key_value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "option_key",
+          "named": true
+        },
+        {
+          "type": "option_value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "options",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "option",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "port",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "port_list",
+          "named": true
+        },
+        {
+          "type": "port_spec",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "port_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "port_spec",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "port_range",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "port_single",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "port_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "port_range",
+          "named": true
+        },
+        {
+          "type": "port_single",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "protocol",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "rule",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "action",
+          "named": true
+        },
+        {
+          "type": "direction",
+          "named": true
+        },
+        {
+          "type": "network",
+          "named": true
+        },
+        {
+          "type": "options",
+          "named": true
+        },
+        {
+          "type": "port",
+          "named": true
+        },
+        {
+          "type": "protocol",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "variable",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "!",
+    "named": false
+  },
+  {
+    "type": "#",
+    "named": false
+  },
+  {
+    "type": "$",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": ",",
+    "named": false
+  },
+  {
+    "type": "->",
+    "named": false
+  },
+  {
+    "type": ".",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": ";",
+    "named": false
+  },
+  {
+    "type": "<>",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
+    "type": "alert",
+    "named": false
+  },
+  {
+    "type": "any",
+    "named": false
+  },
+  {
+    "type": "dcerpc",
+    "named": false
+  },
+  {
+    "type": "dhcp",
+    "named": false
+  },
+  {
+    "type": "dnp3",
+    "named": false
+  },
+  {
+    "type": "dns",
+    "named": false
+  },
+  {
+    "type": "drop",
+    "named": false
+  },
+  {
+    "type": "enip",
+    "named": false
+  },
+  {
+    "type": "ftp",
+    "named": false
+  },
+  {
+    "type": "http",
+    "named": false
+  },
+  {
+    "type": "http2",
+    "named": false
+  },
+  {
+    "type": "icmp",
+    "named": false
+  },
+  {
+    "type": "ikev2",
+    "named": false
+  },
+  {
+    "type": "imap",
+    "named": false
+  },
+  {
+    "type": "ip",
+    "named": false
+  },
+  {
+    "type": "krb5",
+    "named": false
+  },
+  {
+    "type": "modbus",
+    "named": false
+  },
+  {
+    "type": "network_octet",
+    "named": true
+  },
+  {
+    "type": "network_subnet_mask",
+    "named": true
+  },
+  {
+    "type": "nfs",
+    "named": false
+  },
+  {
+    "type": "ntp",
+    "named": false
+  },
+  {
+    "type": "option_key",
+    "named": true
+  },
+  {
+    "type": "option_value",
+    "named": true
+  },
+  {
+    "type": "pass",
+    "named": false
+  },
+  {
+    "type": "port_single",
+    "named": true
+  },
+  {
+    "type": "rdp",
+    "named": false
+  },
+  {
+    "type": "reject",
+    "named": false
+  },
+  {
+    "type": "rejectboth",
+    "named": false
+  },
+  {
+    "type": "rejectdst",
+    "named": false
+  },
+  {
+    "type": "rejectsrc",
+    "named": false
+  },
+  {
+    "type": "rfb",
+    "named": false
+  },
+  {
+    "type": "sip",
+    "named": false
+  },
+  {
+    "type": "smb",
+    "named": false
+  },
+  {
+    "type": "smtp",
+    "named": false
+  },
+  {
+    "type": "snmp",
+    "named": false
+  },
+  {
+    "type": "ssh",
+    "named": false
+  },
+  {
+    "type": "tcp",
+    "named": false
+  },
+  {
+    "type": "tftp",
+    "named": false
+  },
+  {
+    "type": "tls",
+    "named": false
+  },
+  {
+    "type": "udp",
+    "named": false
+  }
+]

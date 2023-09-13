@@ -1,0 +1,600 @@
+{
+  "name": "suricata",
+  "rules": {
+    "file": {
+      "type": "REPEAT",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "rule"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "comment"
+          }
+        ]
+      }
+    },
+    "rule": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "action"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "protocol"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "network"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "port"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "direction"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "network"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "port"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "options"
+        }
+      ]
+    },
+    "direction": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "->"
+        },
+        {
+          "type": "STRING",
+          "value": "<>"
+        }
+      ]
+    },
+    "action": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "alert"
+        },
+        {
+          "type": "STRING",
+          "value": "pass"
+        },
+        {
+          "type": "STRING",
+          "value": "drop"
+        },
+        {
+          "type": "STRING",
+          "value": "reject"
+        },
+        {
+          "type": "STRING",
+          "value": "rejectsrc"
+        },
+        {
+          "type": "STRING",
+          "value": "rejectdst"
+        },
+        {
+          "type": "STRING",
+          "value": "rejectboth"
+        }
+      ]
+    },
+    "protocol": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "tcp"
+        },
+        {
+          "type": "STRING",
+          "value": "udp"
+        },
+        {
+          "type": "STRING",
+          "value": "icmp"
+        },
+        {
+          "type": "STRING",
+          "value": "ip"
+        },
+        {
+          "type": "STRING",
+          "value": "http"
+        },
+        {
+          "type": "STRING",
+          "value": "ftp"
+        },
+        {
+          "type": "STRING",
+          "value": "tls"
+        },
+        {
+          "type": "STRING",
+          "value": "smb"
+        },
+        {
+          "type": "STRING",
+          "value": "dns"
+        },
+        {
+          "type": "STRING",
+          "value": "dcerpc"
+        },
+        {
+          "type": "STRING",
+          "value": "ssh"
+        },
+        {
+          "type": "STRING",
+          "value": "smtp"
+        },
+        {
+          "type": "STRING",
+          "value": "imap"
+        },
+        {
+          "type": "STRING",
+          "value": "modbus"
+        },
+        {
+          "type": "STRING",
+          "value": "dnp3"
+        },
+        {
+          "type": "STRING",
+          "value": "enip"
+        },
+        {
+          "type": "STRING",
+          "value": "nfs"
+        },
+        {
+          "type": "STRING",
+          "value": "ikev2"
+        },
+        {
+          "type": "STRING",
+          "value": "krb5"
+        },
+        {
+          "type": "STRING",
+          "value": "ntp"
+        },
+        {
+          "type": "STRING",
+          "value": "dhcp"
+        },
+        {
+          "type": "STRING",
+          "value": "rfb"
+        },
+        {
+          "type": "STRING",
+          "value": "rdp"
+        },
+        {
+          "type": "STRING",
+          "value": "snmp"
+        },
+        {
+          "type": "STRING",
+          "value": "tftp"
+        },
+        {
+          "type": "STRING",
+          "value": "sip"
+        },
+        {
+          "type": "STRING",
+          "value": "http2"
+        }
+      ]
+    },
+    "network": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "network_ip"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "network_list"
+            }
+          ]
+        }
+      ]
+    },
+    "network_ip": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "any"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "network_cidr"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "/"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "network_subnet_mask"
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "network_cidr": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "!"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "network_octet"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "SYMBOL",
+          "name": "network_octet"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "SYMBOL",
+          "name": "network_octet"
+        },
+        {
+          "type": "STRING",
+          "value": "."
+        },
+        {
+          "type": "SYMBOL",
+          "name": "network_octet"
+        }
+      ]
+    },
+    "network_octet": {
+      "type": "PATTERN",
+      "value": "\\d"
+    },
+    "network_subnet_mask": {
+      "type": "PATTERN",
+      "value": "\\d{1,2}"
+    },
+    "network_list": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "SYMBOL",
+          "name": "network_list_entry"
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        }
+      ]
+    },
+    "network_list_entry": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "network_ip"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "network_ip"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "port": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "port_spec"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "variable"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "port_list"
+        }
+      ]
+    },
+    "port_list": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "port_spec"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "port_spec"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        }
+      ]
+    },
+    "port_spec": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "!"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "any"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "port_single"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "port_range"
+            }
+          ]
+        }
+      ]
+    },
+    "port_single": {
+      "type": "PATTERN",
+      "value": "\\d{1,5}"
+    },
+    "port_range": {
+      "type": "PREC_RIGHT",
+      "value": 1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "port_single"
+          },
+          {
+            "type": "STRING",
+            "value": ":"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "port_single"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "variable": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "$"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^\\s]+"
+        }
+      ]
+    },
+    "options": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "option"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "option": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "option_key_value"
+          },
+          {
+            "type": "STRING",
+            "value": ";"
+          }
+        ]
+      }
+    },
+    "option_key_value": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "option_key"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ":"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "option_value"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "option_key": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z_-]+"
+    },
+    "option_value": {
+      "type": "PATTERN",
+      "value": "[^;)\\n]+"
+    },
+    "comment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#"
+        },
+        {
+          "type": "PATTERN",
+          "value": ".*"
+        }
+      ]
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}
+

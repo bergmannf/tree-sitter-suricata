@@ -1,0 +1,30 @@
+module.exports = grammar({
+        name: 'suricata',
+
+        rules: {
+                file: $ => repeat(choice($.rule, $.comment)),
+                rule: $ => seq($.action, $.protocol, $.network, $.port, $.direction, $.network, $.port, $.options),
+                direction: $ => choice("->", "<>"),
+                action: $ => choice('alert', 'pass', 'drop', 'reject', 'rejectsrc', 'rejectdst', 'rejectboth'),
+                protocol: $ => choice('tcp', 'udp', 'icmp', 'ip', 'http', 'ftp', 'tls', 'smb', 'dns', 'dcerpc', 'ssh', 'smtp', 'imap', 'modbus', 'dnp3', 'enip', 'nfs', 'ikev2', 'krb5', 'ntp', 'dhcp', 'rfb', 'rdp', 'snmp', 'tftp', 'sip', 'http2'),
+                network: $ => seq(choice($.network_ip, $.network_list)),
+                network_ip: $ => choice("any", seq($.network_cidr, optional(seq("/", $.network_subnet_mask)))),
+                network_cidr: $ => seq(optional("!"), $.network_octet, ".", $.network_octet, ".", $.network_octet, ".", $.network_octet),
+                network_octet: $ => /\d/,
+                network_subnet_mask: $ => /\d{1,2}/,
+                network_list: $ => seq('[', $.network_list_entry, ']'),
+                network_list_entry: $ => seq($.network_ip, repeat(seq(",", $.network_ip))),
+                port: $ => choice($.port_spec, $.variable, $.port_list),
+                port_list: $ => seq('[', seq($.port_spec, repeat(seq(",", $.port_spec))), ']'),
+                port_spec: $ => seq(optional("!"), choice("any", $.port_single, $.port_range)),
+                port_single: $ => /\d{1,5}/,
+                port_range: $ => prec.right(1, seq($.port_single, ":", optional($.port_single))),
+                variable: $ => seq("$", /[^\s]+/),
+                options: $ => seq("(", $.option, ")"),
+                option: $ => repeat1(seq($.option_key_value, ";")),
+                option_key_value: $ => seq($.option_key, optional(seq(":", $.option_value))),
+                option_key: $ => /[a-zA-Z_-]+/,
+                option_value: $ => /[^;)\n]+/,
+                comment: $ => seq("#", /.*/),
+        }
+});

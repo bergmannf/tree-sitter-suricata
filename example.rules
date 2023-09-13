@@ -1,0 +1,6 @@
+alert tcp any any -> any any (msg: "test";)
+# This is a comment
+alert tcp 1.1.1.1 any -> 2.2.2.2 any (msg: "Hi";)
+alert tcp 1.1.1.1 53 -> 2.2.2.2 [52,53] (msg: "Hi";)
+alert tcp 1.1.1.1 any -> 2.2.2.2 any (msg: "hi"; more; key: value;)
+# This is a comment
