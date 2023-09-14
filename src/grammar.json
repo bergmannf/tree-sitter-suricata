@@ -597,7 +597,7 @@
     },
     "option_value": {
       "type": "PATTERN",
-      "value": "[^;)\\n]+"
+      "value": "[^;]+"
     },
     "comment": {
       "type": "SEQ",

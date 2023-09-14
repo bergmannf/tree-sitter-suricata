@@ -9,3 +9,5 @@ alert tcp 1.1.1.1 any -> 2.2.2.2 any (msg: "hi"; key.with.dots;)
 alert tcp $EXTERNAL_NET any -> $HOME_NET any (msg: "external";)
 # pkthdr was not in the official docs
 alert pkthdr any any -> any any (msg:"SURICATA IPv4 packet too small"; decode-event:ipv4.pkt_too_small;)
+# Add some rules with negations
+alert tcp ![!1.1.1.1/8, 2.2.2.2] 53 -> ![$HOME_NET, 1.1.1.1] 53 (msg: "Complex rule (with braces)";)
