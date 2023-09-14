@@ -403,6 +403,10 @@
     "named": false
   },
   {
+    "type": "ipv6",
+    "named": false
+  },
+  {
     "type": "krb5",
     "named": false
   },
@@ -436,6 +440,10 @@
   },
   {
     "type": "pass",
+    "named": false
+  },
+  {
+    "type": "pkthdr",
     "named": false
   },
   {

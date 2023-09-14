@@ -76,11 +76,11 @@
         },
         {
           "type": "STRING",
-          "value": "pass"
+          "value": "drop"
         },
         {
           "type": "STRING",
-          "value": "drop"
+          "value": "pass"
         },
         {
           "type": "STRING",
@@ -88,7 +88,7 @@
         },
         {
           "type": "STRING",
-          "value": "rejectsrc"
+          "value": "rejectboth"
         },
         {
           "type": "STRING",
@@ -96,7 +96,7 @@
         },
         {
           "type": "STRING",
-          "value": "rejectboth"
+          "value": "rejectsrc"
         }
       ]
     },
@@ -105,83 +105,7 @@
       "members": [
         {
           "type": "STRING",
-          "value": "tcp"
-        },
-        {
-          "type": "STRING",
-          "value": "udp"
-        },
-        {
-          "type": "STRING",
-          "value": "icmp"
-        },
-        {
-          "type": "STRING",
-          "value": "ip"
-        },
-        {
-          "type": "STRING",
-          "value": "http"
-        },
-        {
-          "type": "STRING",
-          "value": "ftp"
-        },
-        {
-          "type": "STRING",
-          "value": "tls"
-        },
-        {
-          "type": "STRING",
-          "value": "smb"
-        },
-        {
-          "type": "STRING",
-          "value": "dns"
-        },
-        {
-          "type": "STRING",
           "value": "dcerpc"
-        },
-        {
-          "type": "STRING",
-          "value": "ssh"
-        },
-        {
-          "type": "STRING",
-          "value": "smtp"
-        },
-        {
-          "type": "STRING",
-          "value": "imap"
-        },
-        {
-          "type": "STRING",
-          "value": "modbus"
-        },
-        {
-          "type": "STRING",
-          "value": "dnp3"
-        },
-        {
-          "type": "STRING",
-          "value": "enip"
-        },
-        {
-          "type": "STRING",
-          "value": "nfs"
-        },
-        {
-          "type": "STRING",
-          "value": "ikev2"
-        },
-        {
-          "type": "STRING",
-          "value": "krb5"
-        },
-        {
-          "type": "STRING",
-          "value": "ntp"
         },
         {
           "type": "STRING",
@@ -189,7 +113,67 @@
         },
         {
           "type": "STRING",
-          "value": "rfb"
+          "value": "dnp3"
+        },
+        {
+          "type": "STRING",
+          "value": "dns"
+        },
+        {
+          "type": "STRING",
+          "value": "enip"
+        },
+        {
+          "type": "STRING",
+          "value": "ftp"
+        },
+        {
+          "type": "STRING",
+          "value": "http"
+        },
+        {
+          "type": "STRING",
+          "value": "http2"
+        },
+        {
+          "type": "STRING",
+          "value": "icmp"
+        },
+        {
+          "type": "STRING",
+          "value": "ikev2"
+        },
+        {
+          "type": "STRING",
+          "value": "imap"
+        },
+        {
+          "type": "STRING",
+          "value": "ip"
+        },
+        {
+          "type": "STRING",
+          "value": "ipv6"
+        },
+        {
+          "type": "STRING",
+          "value": "krb5"
+        },
+        {
+          "type": "STRING",
+          "value": "modbus"
+        },
+        {
+          "type": "STRING",
+          "value": "nfs"
+        },
+        {
+          "type": "STRING",
+          "value": "ntp"
+        },
+        {
+          "type": "STRING",
+          "value": "pkthdr"
         },
         {
           "type": "STRING",
@@ -197,11 +181,7 @@
         },
         {
           "type": "STRING",
-          "value": "snmp"
-        },
-        {
-          "type": "STRING",
-          "value": "tftp"
+          "value": "rfb"
         },
         {
           "type": "STRING",
@@ -209,7 +189,35 @@
         },
         {
           "type": "STRING",
-          "value": "http2"
+          "value": "smb"
+        },
+        {
+          "type": "STRING",
+          "value": "smtp"
+        },
+        {
+          "type": "STRING",
+          "value": "snmp"
+        },
+        {
+          "type": "STRING",
+          "value": "ssh"
+        },
+        {
+          "type": "STRING",
+          "value": "tcp"
+        },
+        {
+          "type": "STRING",
+          "value": "tftp"
+        },
+        {
+          "type": "STRING",
+          "value": "tls"
+        },
+        {
+          "type": "STRING",
+          "value": "udp"
         }
       ]
     },
