@@ -161,6 +161,10 @@
         },
         {
           "type": "STRING",
+          "value": "mqtt"
+        },
+        {
+          "type": "STRING",
           "value": "modbus"
         },
         {

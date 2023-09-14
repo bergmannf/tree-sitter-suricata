@@ -23,6 +23,7 @@ let PROTOCOLS = [
         'ip',
         'ipv6',
         'krb5',
+        'mqtt',
         'modbus',
         'nfs',
         'ntp',

@@ -415,6 +415,10 @@
     "named": false
   },
   {
+    "type": "mqtt",
+    "named": false
+  },
+  {
     "type": "network_octet",
     "named": true
   },
